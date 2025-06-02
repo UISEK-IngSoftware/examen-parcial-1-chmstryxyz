@@ -1,0 +1,18 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+    <h2>Listado de Películas</h2>
+    {% if movies %}
+        <ul>
+            {% for peli in movies %}
+                <li>
+                    <a href="{% url 'movies:movie_detail' peli.pk %}">
+                        {{ peli.title }} - {{ peli.year }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay películas registradas.</p>
+    {% endif %}
+{% endblock %}
